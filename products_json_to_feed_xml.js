@@ -49,7 +49,7 @@ function saveData(rowsCount) {
 }
 
 function processImageUrl(commaSeparateRelativePaths) {
-    const firstImageUrl = commaSeparateRelativePaths.split(',');
+    const firstImageUrl = commaSeparateRelativePaths.split(',')[0];
     return `${host}/media/catalog/product${firstImageUrl}`;
 }
 
@@ -61,5 +61,5 @@ function processCategories(commaSeparatedCategories) {
 }
 
 function processProductUrl(urlKey) {
-    return `${host}/media/catalog/product${urlKey}.html`;
+    return `${host}/${urlKey}.html`;
 }
