@@ -31,8 +31,8 @@ function appendItem(product) {
     let item = channelElement.ele('item');
 
     item.ele('g:id', null, product['sku']);
-    item.ele('g:url', null, processProductUrl(product['url_key']));
-    item.ele('g:name', null, product['name']);
+    item.ele('g:link', null, processProductUrl(product['url_key']));
+    item.ele('g:title', null, product['name']);
     item.ele('g:description', null, product['description']);
     item.ele('g:link', null, product['url']);
     item.ele('g:image_link', null, processImageUrl(product['additional_images']));
