@@ -53,10 +53,11 @@ function processImageUrl(commaSeparateRelativePaths) {
     return `${host}/media/catalog/product${firstImageUrl}`;
 }
 
-function processCategories(commaSeparatedCategories) {
+function processCategories(commaSeparatedCategoryTrees) {
+    const categoryTrees = commaSeparatedCategoryTrees.split(',');
     return Array
-        .from(commaSeparatedCategories)
-        .map(char => char === ',' ? ' > ' : char)
+        .from(categoryTrees[categoryTrees.length - 1])
+        .map(char => char === '/' ? ' > ' : char)
         .join('');
 }
 
