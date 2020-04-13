@@ -13,9 +13,14 @@ const host = 'https://recom.devel.ardas.dp.ua';
 const channelElement = rssElement.ele('channel');
 
 
+function filterProducts(products) {
+    return products
+        .filter(product => product['product_type'] !== 'configurable')
+}
+
 fs.promises.readFile('./products.json')
     .then(r => JSON.parse(r.toString()))
-    // .then(p => p.slice(0, 1))
+    .then(filterProducts)
     .then(appendItems)
     .then(saveData)
     .catch(console.error);
